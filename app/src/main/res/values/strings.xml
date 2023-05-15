@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LemonadeApp</string>
+    <string name="Lemon_tree">Нажми на лимонное дерево, чтобы получить лимон</string>
+    <string name="Lemon">Нажми, чтобы выжать сок</string>
+    <string name="Glass_of_lemonade">Нажми, чтобы выпить лимонад</string>
+    <string name="Empty_glass">Нажми, чтобы вернуться к дереву</string>
 </resources>
