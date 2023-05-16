@@ -20,11 +20,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -40,11 +43,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             LemonadeAppTheme {
                 // A surface container using the 'background' color from the theme
-              LemonadeApp()
-                }
+                LemonadeApp()
             }
         }
     }
+}
 
 
 @Preview
@@ -65,10 +68,6 @@ fun LemonadeAppActions(
         mutableStateOf(0)
     }
 
-    var actionText by remember {
-        mutableStateOf(R.string.Lemon_tree)
-    }
-
     val resourceImage = when (clickResult) {
         0 -> R.drawable.lemon_tree
         1 -> R.drawable.lemon_squeeze
@@ -85,7 +84,7 @@ fun LemonadeAppActions(
         else -> R.string.Lemon_tree
     }
 
-    if(clickResult >= 4) clickResult =0
+    if (clickResult >= 4) clickResult = 0
 
     Column(
         modifier = Modifier
@@ -101,7 +100,8 @@ fun LemonadeAppActions(
             contentDescription = clickResult.toString(),
             modifier = Modifier
                 .clickable { clickResult++ }
-                .border(3.dp, Color.Black)
+                .clip(shape = RoundedCornerShape(30.dp))
+                .border(3.dp, Color.Black, RoundedCornerShape(30.dp))
                 .background(Color(0xFFFED6BC))
         )
 
